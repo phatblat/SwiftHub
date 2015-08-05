@@ -2,7 +2,7 @@
 
 An SDK for the GitHub API.
 
-_This repo is a complete work-in-progress. Supported features of the GitHub API will be listed once support has been added._
+_This repo is a work-in-progress. Features of the GitHub API will be listed once they have been implemented._
 
 ## Project Goals
 
