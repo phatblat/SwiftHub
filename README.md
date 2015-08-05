@@ -6,6 +6,7 @@ _This repo is a complete work-in-progress. Supported features of the GitHub API 
 
 ## Project Goals
 
-* No 3rd party dependencies
 * Modern framework for iOS and OS X
+* Use NSURLSession for all network operations
+* No 3rd party dependencies
 * Use new Swift 2 paradigms
