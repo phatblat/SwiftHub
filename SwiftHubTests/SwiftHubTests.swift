@@ -20,9 +20,15 @@ class SwiftHubTests: XCTestCase {
     }
 
     func testEventsList() {
-        self.measureBlock {
-            Events.list()
+        let expectation: XCTestExpectation = expectationWithDescription("asynchronous request")
+
+        Events.list() { (events: [String]?) in
+            XCTAssertNotNil(events)
+            print("events \(events)")
+            expectation.fulfill()
         }
+
+        waitForExpectationsWithTimeout(10, handler: nil)
     }
 
 }

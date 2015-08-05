@@ -8,9 +8,11 @@
 
 import Foundation
 
+public typealias EventList = (events: [String]?) -> Void
+
 public class Events {
 
-    public class func list() {
+    public class func list(callback: EventList) {
         /* Configure session, choose between:
         * defaultSessionConfiguration
         * ephemeralSessionConfiguration
@@ -32,21 +34,26 @@ public class Events {
         request.HTTPMethod = "GET"
 
         /* Start a new Task */
-//        let json = try!NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? NSDictionary
 
         let task = session.dataTaskWithRequest(request, completionHandler: {
 //            (data : NSData!, response : NSURLResponse!, error : NSError!) -> Void in
-            (data, response, error) -> Void in
+            (data: NSData?,  response: NSURLResponse?, error: NSError?) -> Void in
+//            (data, response, error) -> Void in
+
             if let error = error {
                 // Failure
                 print("URL Session Task Failed: \(error.localizedDescription)");
+                callback(events: nil)
             }
             else {
                 // Success
                 let statusCode = (response as! NSHTTPURLResponse).statusCode
                 print("URL Session Task Succeeded: HTTP \(statusCode)")
+//        let json = try! NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? NSDictionary
+                callback(events: [""])
             }
         })
+
         task.resume()
     }
 
