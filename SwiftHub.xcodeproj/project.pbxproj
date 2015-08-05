@@ -10,6 +10,7 @@
 		F89F79D61B71AE3700886D57 /* SwiftHub.h in Headers */ = {isa = PBXBuildFile; fileRef = F89F79D51B71AE3700886D57 /* SwiftHub.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F89F79DD1B71AE3800886D57 /* SwiftHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F89F79D21B71AE3700886D57 /* SwiftHub.framework */; };
 		F89F79E21B71AE3800886D57 /* SwiftHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89F79E11B71AE3800886D57 /* SwiftHubTests.swift */; };
+		F89F79ED1B71CB1D00886D57 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89F79EC1B71CB1D00886D57 /* Events.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		F89F79DC1B71AE3800886D57 /* SwiftHubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftHubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F89F79E11B71AE3800886D57 /* SwiftHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftHubTests.swift; sourceTree = "<group>"; };
 		F89F79E31B71AE3800886D57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F89F79EC1B71CB1D00886D57 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				F89F79D51B71AE3700886D57 /* SwiftHub.h */,
 				F89F79D71B71AE3700886D57 /* Info.plist */,
+				F89F79EC1B71CB1D00886D57 /* Events.swift */,
 			);
 			path = SwiftHub;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 		F89F79C91B71AE3700886D57 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = phatblat;
 				TargetAttributes = {
@@ -193,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F89F79ED1B71CB1D00886D57 /* Events.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +312,7 @@
 		F89F79E71B71AE3800886D57 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -318,12 +324,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.phatblat.SwiftHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		F89F79E81B71AE3800886D57 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
