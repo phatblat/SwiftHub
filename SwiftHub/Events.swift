@@ -6,13 +6,14 @@
 //  Copyright © 2015 phatblat. All rights reserved.
 //
 
+import Dispatch
 import Foundation
 
 public typealias EventList = (events: [String]?) -> Void
 
 public class Events {
 
-    public class func list(callback: EventList) {
+    public class func list(queue: dispatch_queue_t = dispatch_get_main_queue(), callback: EventList) {
         /* Configure session, choose between:
         * defaultSessionConfiguration
         * ephemeralSessionConfiguration
@@ -21,6 +22,7 @@ public class Events {
         HTTPCookieAcceptPolicy, requestCachePolicy or timeoutIntervalForRequest.
         */
         let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
+        sessionConfig.HTTPAdditionalHeaders = ["Accept": "application/vnd.github.v3+json"]
 
         /* Create session, and optionally set a NSURLSessionDelegate. */
         let session = NSURLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
@@ -43,14 +45,18 @@ public class Events {
             if let error = error {
                 // Failure
                 print("URL Session Task Failed: \(error.localizedDescription)");
-                callback(events: nil)
+                dispatch_sync(queue) {
+                    callback(events: nil)
+                }
             }
             else {
                 // Success
                 let statusCode = (response as! NSHTTPURLResponse).statusCode
                 print("URL Session Task Succeeded: HTTP \(statusCode)")
 //        let json = try! NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? NSDictionary
-                callback(events: [""])
+                dispatch_sync(queue) {
+                    callback(events: [""])
+                }
             }
         })
 
