@@ -32,9 +32,9 @@ public class Events {
         let URL = NSURL(string: "https://api.github.com/users/phatblat/events")
         let request = NSMutableURLRequest(URL: URL!)
         request.HTTPMethod = "GET"
+        request.addValue("application/vnd.github.v3+json", forHTTPHeaderField: "Accept")
 
         /* Start a new Task */
-
         let task = session.dataTaskWithRequest(request, completionHandler: {
 //            (data : NSData!, response : NSURLResponse!, error : NSError!) -> Void in
             (data: NSData?,  response: NSURLResponse?, error: NSError?) -> Void in
