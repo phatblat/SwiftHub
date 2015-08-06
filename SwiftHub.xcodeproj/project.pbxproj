@@ -15,7 +15,6 @@
 		F89984791B7322EB00F81D7C /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F89984711B73190800F81D7C /* Quick.framework */; };
 		F89F79D61B71AE3700886D57 /* SwiftHub.h in Headers */ = {isa = PBXBuildFile; fileRef = F89F79D51B71AE3700886D57 /* SwiftHub.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F89F79DD1B71AE3800886D57 /* SwiftHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F89F79D21B71AE3700886D57 /* SwiftHub.framework */; };
-		F89F79E21B71AE3800886D57 /* SwiftHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89F79E11B71AE3800886D57 /* SwiftHubTests.swift */; };
 		F89F79ED1B71CB1D00886D57 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89F79EC1B71CB1D00886D57 /* Events.swift */; };
 		F8FDA9231B73283E000DC1D3 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F89984711B73190800F81D7C /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8FDA9241B732845000DC1D3 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F89984701B73190800F81D7C /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -281,7 +280,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F89F79E21B71AE3800886D57 /* SwiftHubTests.swift in Sources */,
 				F89984751B73197E00F81D7C /* EventsSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
