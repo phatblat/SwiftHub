@@ -19,7 +19,6 @@ class EventsSpec: QuickSpec {
                 Events.list() { (events: [String]?) in
                     XCTAssertNotNil(events)
                     print("events \(events)")
-                    // expectation.fulfill()
                     dispatch_semaphore_signal(sema)
                 }
 
