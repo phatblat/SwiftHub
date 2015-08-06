@@ -76,13 +76,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F89984771B73218100F81D7C /* Test Frameworks */ = {
+		F89984771B73218100F81D7C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				F89984701B73190800F81D7C /* Nimble.framework */,
 				F89984711B73190800F81D7C /* Quick.framework */,
 			);
-			name = "Test Frameworks";
+			name = Frameworks;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -120,7 +120,7 @@
 				F89984741B73197E00F81D7C /* EventsSpec.swift */,
 				F89F79E31B71AE3800886D57 /* Info.plist */,
 				F89F79E11B71AE3800886D57 /* SwiftHubTests.swift */,
-				F89984771B73218100F81D7C /* Test Frameworks */,
+				F89984771B73218100F81D7C /* Frameworks */,
 			);
 			path = SwiftHubTests;
 			sourceTree = "<group>";
