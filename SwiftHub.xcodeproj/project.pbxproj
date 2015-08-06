@@ -14,6 +14,8 @@
 		F89F79DD1B71AE3800886D57 /* SwiftHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F89F79D21B71AE3700886D57 /* SwiftHub.framework */; };
 		F89F79E21B71AE3800886D57 /* SwiftHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89F79E11B71AE3800886D57 /* SwiftHubTests.swift */; };
 		F89F79ED1B71CB1D00886D57 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89F79EC1B71CB1D00886D57 /* Events.swift */; };
+		F8FDA9231B73283E000DC1D3 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F89984711B73190800F81D7C /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F8FDA9241B732845000DC1D3 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F89984701B73190800F81D7C /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +27,20 @@
 			remoteInfo = SwiftHub;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F8FDA9221B732825000DC1D3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F8FDA9241B732845000DC1D3 /* Nimble.framework in CopyFiles */,
+				F8FDA9231B73283E000DC1D3 /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F89984701B73190800F81D7C /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
@@ -148,6 +164,8 @@
 				F89F79D81B71AE3800886D57 /* Sources */,
 				F89F79D91B71AE3800886D57 /* Frameworks */,
 				F89F79DA1B71AE3800886D57 /* Resources */,
+				F8FDA9221B732825000DC1D3 /* CopyFiles */,
+				F8FDA9201B732750000DC1D3 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -211,6 +229,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F8FDA9201B732750000DC1D3 /* Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+			);
+			name = "Copy Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F89F79CD1B71AE3700886D57 /* Sources */ = {
