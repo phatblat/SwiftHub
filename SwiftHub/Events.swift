@@ -79,8 +79,14 @@ public class Events {
     private class func parseEvents(data: NSData) -> [String] {
         do {
             let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
-            if let _ = json as? NSArray {
-                
+            if let array = json as? NSArray {
+                var eventList = [String]()
+                for eventDictionary in array {
+                    if let eventId = eventDictionary["id"] as? String {
+                        eventList.append(eventId)
+                    }
+                }
+                return eventList
             }
             else {
                 print("JSON was not a array")
