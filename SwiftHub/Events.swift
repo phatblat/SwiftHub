@@ -37,10 +37,8 @@ public class Events {
         request.addValue("application/vnd.github.v3+json", forHTTPHeaderField: "Accept")
 
         /* Start a new Task */
-        let task = session.dataTaskWithRequest(request, completionHandler: {
-//            (data : NSData!, response : NSURLResponse!, error : NSError!) -> Void in
+        let task = session.dataTaskWithRequest(request) {
             (data: NSData?,  response: NSURLResponse?, error: NSError?) -> Void in
-//            (data, response, error) -> Void in
 
             if let error = error {
                 // Failure
@@ -74,7 +72,7 @@ public class Events {
                     }
                 }
             }
-        })
+        }
 
         task.resume()
     }
