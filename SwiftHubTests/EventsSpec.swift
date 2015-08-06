@@ -14,15 +14,15 @@ class EventsSpec: QuickSpec {
     override func spec() {
         describe("events list") {
             it("can be retrieved") {
-                let sema = dispatch_semaphore_create(0)
+                let semaphore = dispatch_semaphore_create(0)
 
                 Events.list() { (events: [String]?) in
                     XCTAssertNotNil(events)
                     print("events \(events)")
-                    dispatch_semaphore_signal(sema)
+                    dispatch_semaphore_signal(semaphore)
                 }
 
-                dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER)
+                dispatch_semaphore_wait(semaphore, 10 * NSEC_PER_SEC)
             }
         }
     }
