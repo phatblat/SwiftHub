@@ -13,7 +13,7 @@ public typealias EventList = (events: [String]?) -> Void
 
 public class Events {
 
-    public class func list(queue: dispatch_queue_t = dispatch_get_main_queue(), callback: EventList) {
+    public class func list(queue: dispatch_queue_t? = nil, callback: EventList) {
         /* Configure session, choose between:
         * defaultSessionConfiguration
         * ephemeralSessionConfiguration
@@ -45,8 +45,15 @@ public class Events {
             if let error = error {
                 // Failure
                 print("URL Session Task Failed: \(error.localizedDescription)");
-                dispatch_sync(queue) {
+
+                // Call back on same queue if none specified
+                if queue == nil {
                     callback(events: nil)
+                }
+                else {
+                    dispatch_sync(queue!) {
+                        callback(events: nil)
+                    }
                 }
             }
             else {
@@ -54,8 +61,17 @@ public class Events {
                 let statusCode = (response as! NSHTTPURLResponse).statusCode
                 print("URL Session Task Succeeded: HTTP \(statusCode)")
 //        let json = try! NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? NSDictionary
-                dispatch_sync(queue) {
-                    callback(events: [""])
+
+                let events = [""]
+
+                // Call back on same queue if none specified
+                if queue == nil {
+                    callback(events: events)
+                }
+                else {
+                    dispatch_sync(queue!) {
+                        callback(events: events)
+                    }
                 }
             }
         })
