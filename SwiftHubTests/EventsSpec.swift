@@ -6,23 +6,24 @@
 //  Copyright © 2015 phatblat. All rights reserved.
 //
 
-import SwiftHub
+@testable import SwiftHub
 import Quick
 import Nimble
 
 class EventsSpec: QuickSpec {
     override func spec() {
         describe("events list") {
-            it("can be retrieved") { [unowned self] in
-                let expectation: XCTestExpectation = self.expectationWithDescription("asynchronous request")
-                
+            it("can be retrieved") {
+                let sema = dispatch_semaphore_create(0)
+
                 Events.list() { (events: [String]?) in
                     XCTAssertNotNil(events)
                     print("events \(events)")
-                    expectation.fulfill()
+                    // expectation.fulfill()
+                    dispatch_semaphore_signal(sema)
                 }
-                
-                self.waitForExpectationsWithTimeout(10, handler: nil)
+
+                dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER)
             }
         }
     }
