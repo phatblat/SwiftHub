@@ -11,18 +11,27 @@ import Quick
 import Nimble
 
 class EventsSpec: QuickSpec {
+    var events: [String]?
+    
     override func spec() {
         describe("events list") {
             it("can be retrieved") {
-                let semaphore = dispatch_semaphore_create(0)
+                guard let semaphore = dispatch_semaphore_create(0)
+                else { fatalError("Failed to create semaphore") }
 
                 Events.list() { (events: [String]?) in
-                    XCTAssertNotNil(events)
+                    expect(events).toNot(beNil())
                     print("events \(events)")
+                    self.events = events
+
                     dispatch_semaphore_signal(semaphore)
                 }
 
-                dispatch_semaphore_wait(semaphore, 10 * NSEC_PER_SEC)
+                let timeout = dispatch_time(DISPATCH_TIME_NOW, Int64(10 * NSEC_PER_SEC))
+                dispatch_semaphore_wait(semaphore, timeout)
+                
+                expect(self.events).toNot(beNil())
+                expect(self.events?.count).to(equal(30))
             }
         }
     }
