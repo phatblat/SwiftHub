@@ -58,9 +58,8 @@ public class Events {
                 // Success
                 let statusCode = (response as! NSHTTPURLResponse).statusCode
                 print("URL Session Task Succeeded: HTTP \(statusCode)")
-//        let json = try! NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? NSDictionary
 
-                let events = [""]
+                let events = (data != nil) ? parseEvents(data!) : []
 
                 // Call back on same queue if none specified
                 if queue == nil {
@@ -75,6 +74,23 @@ public class Events {
         }
 
         task.resume()
+    }
+
+    private class func parseEvents(data: NSData) -> [String] {
+        do {
+            let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+            if let _ = json as? NSArray {
+                
+            }
+            else {
+                print("JSON was not a array")
+            }
+        }
+        catch {
+            print("Error parsing json \(error)")
+        }
+
+        return []
     }
 
 }
