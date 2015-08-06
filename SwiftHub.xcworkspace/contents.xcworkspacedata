@@ -5,6 +5,9 @@
       location = "group:README.md">
    </FileRef>
    <FileRef
+      location = "group:Cartfile.private">
+   </FileRef>
+   <FileRef
       location = "group:SwiftHub.xcodeproj">
    </FileRef>
 </Workspace>
