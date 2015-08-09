@@ -1,8 +1,8 @@
 # SwiftHub
 
-An SDK for the GitHub API.
+A Swift framework for interacting with the [GitHub API](https://developer.github.com).
 
-_This repo is a work-in-progress. Features of the GitHub API will be listed once they have been implemented._
+_This repo is a work-in-progress. Features of the GitHub API will be listed as they have been implemented._
 
 ## Project Goals
 
