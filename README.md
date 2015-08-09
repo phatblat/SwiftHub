@@ -10,3 +10,7 @@ _This repo is a work-in-progress. Features of the GitHub API will be listed as t
 * Use NSURLSession for all network operations
 * No 3rd party dependencies
 * Use new Swift 2 paradigms
+
+## License
+
+SwiftHub is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for rights and limitations.
