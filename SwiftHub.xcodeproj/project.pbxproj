@@ -16,6 +16,7 @@
 		F89F79D61B71AE3700886D57 /* SwiftHub.h in Headers */ = {isa = PBXBuildFile; fileRef = F89F79D51B71AE3700886D57 /* SwiftHub.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F89F79DD1B71AE3800886D57 /* SwiftHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F89F79D21B71AE3700886D57 /* SwiftHub.framework */; };
 		F89F79ED1B71CB1D00886D57 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89F79EC1B71CB1D00886D57 /* Events.swift */; };
+		F8F8F09F1B76EF1D009E72E7 /* SwiftHubSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F8F09E1B76EF1D009E72E7 /* SwiftHubSpec.swift */; };
 		F8FDA9231B73283E000DC1D3 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F89984711B73190800F81D7C /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8FDA9241B732845000DC1D3 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F89984701B73190800F81D7C /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 		F89F79E11B71AE3800886D57 /* SwiftHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftHubTests.swift; sourceTree = "<group>"; };
 		F89F79E31B71AE3800886D57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F89F79EC1B71CB1D00886D57 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		F8F8F09E1B76EF1D009E72E7 /* SwiftHubSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftHubSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,11 +134,12 @@
 		F89F79E01B71AE3800886D57 /* SwiftHubTests */ = {
 			isa = PBXGroup;
 			children = (
-				F89984741B73197E00F81D7C /* EventsSpec.swift */,
-				F89F79E31B71AE3800886D57 /* Info.plist */,
-				F89F79E11B71AE3800886D57 /* SwiftHubTests.swift */,
 				F86F52781B741233007276DD /* Data */,
+				F89984741B73197E00F81D7C /* EventsSpec.swift */,
 				F89984771B73218100F81D7C /* Frameworks */,
+				F89F79E31B71AE3800886D57 /* Info.plist */,
+				F8F8F09E1B76EF1D009E72E7 /* SwiftHubSpec.swift */,
+				F89F79E11B71AE3800886D57 /* SwiftHubTests.swift */,
 			);
 			path = SwiftHubTests;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8F8F09F1B76EF1D009E72E7 /* SwiftHubSpec.swift in Sources */,
 				F89984751B73197E00F81D7C /* EventsSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

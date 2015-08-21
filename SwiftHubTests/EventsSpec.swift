@@ -11,7 +11,7 @@ import Quick
 import Nimble
 import Nocilla
 
-class EventsSpec: QuickSpec {
+class EventsSpec: SwiftHubSpec {
     var events: [String]?
     
     override func spec() {
@@ -23,15 +23,16 @@ class EventsSpec: QuickSpec {
         }
 
         describe("events list") {
+            beforeEach {
+                self.startAsync()
+            }
             afterEach {
+                self.stopAsync()
                 LSNocilla.sharedInstance().clearStubs()
             }
 
             it("can be retrieved") {
                 let baseURLString = "https://api.github.com"
-//                let emptyParameters = [:]
-//                let service = makeJSONWebService(baseURLString: baseURLString, defaultParameters: emptyParameters)
-//                stubRequest("GET", baseURLString + "/users/phatblat/events").andReturn(200).withBody("{\"ok\":1}")
 
                 let path = NSBundle(forClass: EventsSpec.self).pathForResource("events", ofType: "json")!
                 let payload = NSData(contentsOfFile: path)
@@ -40,19 +41,16 @@ class EventsSpec: QuickSpec {
                     .withHeaders(["Accept": "application/vnd.github.v3+json"])
                     .andReturnRawResponse(payload)
 
-                guard let semaphore = dispatch_semaphore_create(0)
-                else { fatalError("Failed to create semaphore") }
 
                 Events.list() { (events: [String]?) in
                     expect(events).toNot(beNil())
                     print("events \(events)")
                     self.events = events
 
-                    dispatch_semaphore_signal(semaphore)
+                    self.signal()
                 }
 
-                let timeout = dispatch_time(DISPATCH_TIME_NOW, Int64(10 * NSEC_PER_SEC))
-                dispatch_semaphore_wait(semaphore, timeout)
+                self.waitForSignalOrTimeout()
                 
                 expect(self.events).toNot(beNil())
                 expect(self.events?.count).to(equal(1))
