@@ -1,6 +1,6 @@
 # SwiftHub
 
-A Swift framework for interacting with the [GitHub API](https://developer.github.com). If you're looking for an officially supported library, check out [Octokit](https://octokit.github.io).
+A Swift framework for interacting with the [GitHub API](https://developer.github.com). If you're looking for an officially supported library, check out [OctoKit](https://octokit.github.io) or [octokit.swift](https://github.com/nerdishbynature/octokit.swift).
 
 _This repo is a work-in-progress. Features of the GitHub API will be listed as they have been implemented._
 
